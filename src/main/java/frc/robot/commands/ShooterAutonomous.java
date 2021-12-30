@@ -15,9 +15,13 @@ public class ShooterAutonomous extends CommandBase {
   private double power;
   private double time;
   private double initialTime;
-
+  /**
+   * Creates a new ExampleCommand.
+   *
+   * @param subsystem The subsystem used by this command.
+   */
   public ShooterAutonomous(ShooterSubsystem shooterSubsystem, double time, double power){
-    this.shooterSubsystem = shooter;
+    this.shooterSubsystem = shooterSubsystem;
     this.time = time;
     this.power = power;
   
@@ -25,16 +29,6 @@ public class ShooterAutonomous extends CommandBase {
     addRequirements(shooterSubsystem);
   }
 
-  /**
-   * Creates a new ExampleCommand.
-   *
-   * @param subsystem The subsystem used by this command.
-   */
-  public ShooterAutonomous(ExampleSubsystem subsystem) {
-    m_subsystem = subsystem;
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
-  }
 
   // Called when the command is initially scheduled.
   @Override
