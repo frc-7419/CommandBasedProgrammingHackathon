@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -13,6 +14,10 @@ public class ShooterSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public ShooterSubsystem() {
     this.shooter = new TalonFX(5);
+  }
+
+  public void setPower(double power) {
+      this.shooter.set(ControlMode.PercentOutput, power);
   }
 
   @Override
