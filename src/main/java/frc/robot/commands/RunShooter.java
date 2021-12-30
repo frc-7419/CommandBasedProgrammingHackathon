@@ -24,21 +24,23 @@ public class RunShooter extends CommandBase {
     addRequirements(shooterSubsystem);
   }
 
-  public void execute(){
-    shooterSubsytem.setPower(0.5);
-  }
-
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    shooterSubsystem.setPower(0.5);
+  }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    shooterSubsystem.setPower(0);
+  }
 
   // Returns true when the command should end.
   @Override
