@@ -15,6 +15,13 @@ public class ShooterAutonomous extends CommandBase {
   private double power;
   private double time;
 
+  public ShooterAutonomous(ShooterSubsystem shooterSubsystem, double time, double power){
+    this.shooterSubsystem = shooter;
+    this.time = time;
+    this.power = power;
+
+    addRequirements(shooterSubsystem);
+  }
 
   /**
    * Creates a new ExampleCommand.
