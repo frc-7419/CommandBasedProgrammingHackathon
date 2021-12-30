@@ -4,11 +4,17 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ShooterSubsystem extends SubsystemBase {
+
+  private TalonFX shooter;
+
   /** Creates a new ShooterSubsystem. */
-  public ShooterSubsystem() {}
+  public ShooterSubsystem() {
+    shooter = new TalonFX(5);
+  }
 
   @Override
   public void periodic() {
