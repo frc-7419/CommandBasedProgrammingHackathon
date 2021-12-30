@@ -17,7 +17,7 @@ public class ShooterSubsystem extends SubsystemBase {
   }
 
   public void setPower(double power){
-    shooter.set(ControlMode.PercentOutput, power);
+    shooter.set(ControlMode.Percent, power);
   }
 
   @Override
