@@ -4,7 +4,6 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -19,9 +18,9 @@ public class RunShooter extends CommandBase {
    * @param subsystem The subsystem used by this command.
    */
   public RunShooter(ShooterSubsystem subsystem) {
-    shooterSub = subsystem;
+    this.shooterSub = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+    addRequirements(this.shooterSub);
   }
 
   // Called when the command is initially scheduled.
