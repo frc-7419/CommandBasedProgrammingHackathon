@@ -12,7 +12,7 @@ public class ShooterSubsystem extends SubsystemBase {
   /** Creates a new ShooterSubsystem. */
   private TalonFX shooter;
 
-  public ShooterSubsystem(TalonFX shooter) {
+  public ShooterSubsystem() {
     this.shooter = new TalonFX(5);
   }
 
