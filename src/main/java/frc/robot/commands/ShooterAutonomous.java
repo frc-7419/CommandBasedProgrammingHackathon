@@ -14,6 +14,7 @@ public class ShooterAutonomous extends CommandBase {
   private final ShooterSubsystem shooter;
   private double time;
   private double power;
+  private double initialTime;
 
   /**
    * Creates a new ExampleCommand.
@@ -30,7 +31,9 @@ public class ShooterAutonomous extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    this.initialTime = System.currentTimeMillis();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -45,6 +48,6 @@ public class ShooterAutonomous extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return (System.currentTimeMillis() - this.initialTime) > this.time;
   }
 }
