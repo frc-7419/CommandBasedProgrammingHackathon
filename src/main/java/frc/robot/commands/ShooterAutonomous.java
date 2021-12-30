@@ -20,8 +20,12 @@ public class ShooterAutonomous extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ShooterAutonomous() {
-    
+  public ShooterAutonomous(ShooterSubsystem shooter, double time, double power) {
+    this.shooter = shooter;
+    this.time = time;
+    this.power = power;
+
+    addRequirements(this.shooter);
   }
 
   // Called when the command is initially scheduled.
