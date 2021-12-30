@@ -24,6 +24,10 @@ public class RunShooter extends CommandBase {
     addRequirements(shooterSubsystem);
   }
 
+  public void execute(){
+    shooterSubsytem.setPower(0.5);
+  }
+
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {}
