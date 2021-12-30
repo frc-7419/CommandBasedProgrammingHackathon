@@ -5,8 +5,8 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
-import edu.wpi.first.wpilibj.CAN;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ShooterSubsystem extends SubsystemBase {
@@ -15,6 +15,10 @@ public class ShooterSubsystem extends SubsystemBase {
 
   public ShooterSubsystem(TalonFX shooter) {
     this.shooter = new TalonFX(5);
+  }
+
+  public void setPower(double power){
+    shooter.set(ControlMode.Percent, power);
   }
 
   @Override
