@@ -5,6 +5,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
+<<<<<<< HEAD
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -22,6 +23,23 @@ public class ShooterSubsystem extends SubsystemBase {
     return power;
   }
 
+=======
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+public class ShooterSubsystem extends SubsystemBase {
+
+  private TalonFX shooter;
+
+  /** Creates a new ShooterSubsystem. */
+  public ShooterSubsystem() {
+    shooter = new TalonFX(5);
+  }
+
+  public void setPower(double power){
+    shooter.set(ControlMode.PercentOutput, power);
+  }
+  
+>>>>>>> Franklin_Kelly-branch1
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
