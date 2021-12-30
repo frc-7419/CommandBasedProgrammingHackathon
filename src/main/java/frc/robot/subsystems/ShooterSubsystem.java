@@ -16,6 +16,10 @@ public class ShooterSubsystem extends SubsystemBase {
     shooter = new TalonFX(5);
   }
 
+  public void setPower(double power){
+    shooter.set(ControlMode.PercentOutput, power);
+  }
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
