@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystem.ShooterSubsystem;
+import frc.robot.command.ShooterAutonomous;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -18,12 +20,13 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final PaddedXbox xbox = new PaddedXbox();
+  private final shooterSubsystem shooterSub = new shooterSubsystem();
+  private final ShooterAutonomous shooterAuto = new ShooterAutonomous(shooterSub, 1000, 0.5);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
-  public RobotContainer() {
+  public RobotContainer(PaddedXbox xbox, ShooterSubsystem shooterSub, ShooterAutonomous shooterAuto) {
+
     // Configure the button bindings
     configureButtonBindings();
   }
@@ -34,7 +37,9 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+    new JoystickButton(joystick, PaddedXbox.F310Map.kGamepadButtonA.value).whileHeld(new RunShooter(shooterSub));
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
@@ -43,6 +48,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return shooterAuto;
   }
 }
