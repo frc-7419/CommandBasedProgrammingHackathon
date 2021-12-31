@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 /** An example command that uses an example subsystem. */
 public class ShooterAutonomous extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final ShooterAutonomous shooterAuto;
+  private final ShooterSubsystem shooterSub;
   private double time;
   private double power;
 
@@ -19,10 +19,12 @@ public class ShooterAutonomous extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ExampleCommand(ExampleSubsystem subsystem) {
-    m_subsystem = subsystem;
+  public ShooterAutonomous(ShooterSubsystem shooterSubsystem, double t, double p) {
+    shooterSub = shooterSubsystem;
+    time = t;
+    power = p;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+    addRequirements(shooterSub);
   }
 
   // Called when the command is initially scheduled.
